@@ -10,8 +10,8 @@
 
     <ScrollViewer Margin="50">
         <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Rectangle Fill="Blue" Width="220" Height="220"/>
-            <Ellipse Fill="Red" Width="175" Height="175"/>
+            <Rectangle Fill="Blue" Width="240" Height="220"/>
+            <Ellipse Fill="Red" Width="275" Height="175"/>
             <Polygon Fill="Green" Points="0,0 275,0 275,200"/>
             <Rectangle Fill="Blue" Width="220" Height="220"/>
             <Ellipse Fill="Red" Width="175" Height="175"/>

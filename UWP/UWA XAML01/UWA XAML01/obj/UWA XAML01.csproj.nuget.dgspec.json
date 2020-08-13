@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asuspc\\Source\\Repos\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj": {}
+    "C:\\Users\\asuspc\\Desktop\\gibhub\\Sem3\\UWP\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asuspc\\Source\\Repos\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj": {
+    "C:\\Users\\asuspc\\Desktop\\gibhub\\Sem3\\UWP\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asuspc\\Source\\Repos\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj",
+        "projectUniqueName": "C:\\Users\\asuspc\\Desktop\\gibhub\\Sem3\\UWP\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj",
         "projectName": "UWA XAML01",
-        "projectPath": "C:\\Users\\asuspc\\Source\\Repos\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj",
+        "projectPath": "C:\\Users\\asuspc\\Desktop\\gibhub\\Sem3\\UWP\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj",
         "packagesPath": "C:\\Users\\asuspc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asuspc\\Source\\Repos\\UWA XAML01\\UWA XAML01\\obj\\",
+        "outputPath": "C:\\Users\\asuspc\\Desktop\\gibhub\\Sem3\\UWP\\UWA XAML01\\UWA XAML01\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

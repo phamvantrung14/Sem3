@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EQY1iSJyJFtmzqHfVi0W7Ix73AgJJztvy7qqngH/F2dbVhYXG4Awmp9C1LvoBcclLOi1SgAW2QHukQ81N3CpXg==",
+  "dgSpecHash": "1rlhLtNS+Y9hMVjefhS39tCGindISqmM+08Ta6PNF5fu9DFU4yEd7hkDFiolVerlLnqSnUMxyuH6j8M1ZEbjiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\asuspc\\Source\\Repos\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj",
+  "projectFilePath": "C:\\Users\\asuspc\\Desktop\\gibhub\\Sem3\\UWP\\UWA XAML01\\UWA XAML01\\UWA XAML01.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.8-rel-28605-00\\microsoft.net.native.compiler.2.2.8-rel-28605-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.10\\microsoft.net.uwpcoreruntimesdk.2.2.10.nupkg.sha512",
