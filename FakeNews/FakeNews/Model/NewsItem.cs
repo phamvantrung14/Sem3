@@ -108,6 +108,7 @@ namespace FakeNews.Model
             return items;
 
         }
+        /* ObservableCollection để tổng hợp nhiều collection*/
         public static void GetNews(string category, ObservableCollection<NewsItem> newsItems)
         {
             var allItems = getNewsItems();

@@ -79,7 +79,8 @@
                                     <RowDefinition Height="*"/>
 
                                 </Grid.RowDefinitions>
-                                <Image Name="MyImage" Source="{x:Bind Image}"/>
+                                <Image Name="MyImage" Source="{Binding Image}"/>
+                               
                                 <RelativePanel Grid.Row="1">
                                     <TextBlock Name="Tb1" Text="{x:Bind Headline}"/>
                                     <TextBlock Name="Tb2" RelativePanel.Below="Tb1" Text="{x:Bind Subhead}"/>
