@@ -39,7 +39,7 @@ namespace WeatherJSON1_12_17_2018
         }
         private async void InitJSON()
         {
-            var url = "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/353412?" + "apikey=tbFOLXfZmAxAexEYOmXhcxnbZBDjQBSh&language=vi-vn&metric=true";
+            var url = "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/353412?" + "apikey=93Qg780lHwYM4SO58n7DFPLqHg4oKADn&language=vi-vn&metric=true";
             var list = await WeatherJSON.GetJSON(url) as List<WeatherJSON>;
             Debug.WriteLine("Count: " + list.Count);
 
@@ -59,14 +59,16 @@ namespace WeatherJSON1_12_17_2018
 
                 WeatherEachHours.Add(it);
             });
+            //WeatherDescriptionTextBlock.Text = list[0].IconPhrase;
             WeatherDescriptionTextBlock.Text = list[0].IconPhrase;
-            WeatherDescriptionTextBlock.Text = list[0].Temperature.Value;
+            WeatherTemperatureTextBlock.Text = list[0].Temperature.Value;
+            
         }
 
         private async void InitEachDaysJSON()
         {
             var urlFiveDay = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/353412?" +
-                "apikey=tbFOLXfZmAxAexEYOmXhcxnbZBDjQBSh&language=vi-vn&metric=true";
+                "apikey=93Qg780lHwYM4SO58n7DFPLqHg4oKADn&language=vi-vn&metric=true";
 
             var obj = await WeatherEachDay.GetWeatherEach(urlFiveDay) as WeatherEachDay;
             obj.DailyForecasts.ForEach(it =>
@@ -82,6 +84,17 @@ namespace WeatherJSON1_12_17_2018
             MaxTemperature.Text = WeatherEachDays[0].Temperature.Maximum.Value + "";
             MinTemperature.Text = WeatherEachDays[0].Temperature.Minimum.Value + "";
             WeatherEachDays.RemoveAt(0);
+        }
+
+        private void ImageBrush_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+           
+
         }
     }
 }

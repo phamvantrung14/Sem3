@@ -47,9 +47,9 @@ namespace WeatherJSON1_12_17_2018.Models
     {
         public string Icon { get; set; }
         public string IconPhrase { get; set; }
-        //public bool HasPrecipitation { get; set; }
-        //public string PrecipitationType { get; set; }
-        //public string PrecipitationIntensity { get; set; }
+        public bool HasPrecipitation { get; set; }
+        public string PrecipitationType { get; set; }
+        public string PrecipitationIntensity { get; set; }
     }
 
     public class Night

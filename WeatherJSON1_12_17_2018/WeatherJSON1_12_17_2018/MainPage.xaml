@@ -9,11 +9,12 @@
     Width="320"
     Height="580"
     xmlns:data="using:WeatherJSON1_12_17_2018.Models"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/bg_weather.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="Assets/bg_weather.jpg"  Stretch="UniformToFill" ImageFailed="ImageBrush_ImageFailed"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
@@ -43,6 +44,7 @@
                 FontSize="85"
                 FontWeight="Thin"
                 RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
                 Text="123123"/>
             <TextBlock
                 Name="Today"
