@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="Bai_Nhom_01.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Bai_Nhom_01"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+
+    <ScrollViewer>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0" Background="#FF165D38">
+            <TextBlock Text="NetWork" FontSize="30"
+                       Foreground="White"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Margin="30"
+                       FontWeight="Bold"/>
+        </RelativePanel>
+        <ScrollViewer Grid.Row="1" Margin="20">
+            <StackPanel >
+                <TextBlock  Name="LocationTextBlock" FontSize="16"
+                            Foreground="Black"
+                            RelativePanel.AlignLeftWithPanel="True" TextWrapping="Wrap"
+                            Margin="0,10"/>
+                <TextBlock TextWrapping="Wrap" Name="TemTextBlock"
+                           Margin="0,10"
+                           FontSize="22"
+                           Foreground="Black" 
+                           RelativePanel.Below="LocationTextBlock"/>
+                    <Image Name="ResultImage"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           Width="auto" 
+                           Margin="0,10"/>
+                    <TextBlock TextWrapping="Wrap" 
+                           Name="DescriptionTextBlock" FontSize="20" Foreground="Black" RelativePanel.Below="ResultImage"/>
+                
+            </StackPanel>
+        </ScrollViewer>
+        
+
+
+    </Grid>
+    </ScrollViewer>
+
+</Page>
