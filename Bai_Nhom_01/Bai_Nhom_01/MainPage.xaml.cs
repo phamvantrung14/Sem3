@@ -1,4 +1,5 @@
 ﻿using Bai_Nhom_01.Model;
+using DataAccesLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+
 using static Bai_Nhom_01.Model.NetWork;
 
 
@@ -29,12 +31,10 @@ namespace Bai_Nhom_01
         public MainPage()
         {
             this.InitializeComponent();
+            sourceImage.Visibility = Visibility.Collapsed;
         }
 
-        private async void Click_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
+       
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -42,9 +42,19 @@ namespace Bai_Nhom_01
             string image = String.Format(myNetwork.image);
             ResultImage.Source = new BitmapImage(new Uri(image, UriKind.Absolute));
             TemTextBlock.Text = myNetwork.title;
+            sourceImage.Text = myNetwork.image;
             DescriptionTextBlock.Text = Convert.ToString(myNetwork.content.description);
             LocationTextBlock.Text = myNetwork.date;
 
+        }
+
+        private async void AddBormarks_Click(object sender, RoutedEventArgs e)
+        {
+           
+            
+                   Class1.AddData(sourceImage.Text);
+           
+            
         }
     }
 }

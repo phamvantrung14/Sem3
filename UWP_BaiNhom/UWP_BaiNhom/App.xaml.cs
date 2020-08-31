@@ -1,5 +1,4 @@
-﻿using DataAccesLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,9 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
-
-namespace Bai_Nhom_01
+namespace UWP_BaiNhom
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -33,7 +30,6 @@ namespace Bai_Nhom_01
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            Class1.InitializeDatabase();
         }
 
         /// <summary>
@@ -70,7 +66,7 @@ namespace Bai_Nhom_01
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(Home), e.Arguments);
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
