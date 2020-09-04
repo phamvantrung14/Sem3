@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="UWP_Practical.AddContacts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP_Practical"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel Background="White" MinWidth="1300">
+        <Grid RelativePanel.AlignHorizontalCenterWithPanel="True"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <RelativePanel Grid.Row="0"
+                           Margin="50,30">
+                <TextBlock Text="Add Contact"
+                           FontSize="30"/>
+            </RelativePanel>
+            <RelativePanel Grid.Row="1"
+                           Margin="50,10">
+                <TextBlock Text="Name"
+                           FontSize="28"
+                           Name="TBName"
+                           Margin="0,5"/>
+                <TextBox Width="300"
+                         FontSize="28"
+                         x:Name="TxtName"
+                         RelativePanel.Below="TBName"/>
+            </RelativePanel>
+            <RelativePanel Grid.Row="2"
+                           Margin="50,10">
+                <TextBlock Text="Phone Number"
+                           FontSize="28"
+                           Name="TBPhone"
+                           Margin="0,5"/>
+                <TextBox Width="300"
+                         FontSize="28"
+                         x:Name="TxtPhone"
+                         RelativePanel.Below="TBPhone"/>
+            </RelativePanel>
+            <RelativePanel Grid.Row="3"
+                           Margin="50,10">
+                <Button Content="Add Contact"
+                        FontSize="25"
+                        Width="300"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        Click="Button_Click"/>
+            </RelativePanel>
+        </Grid>
+    </RelativePanel>
+</Page>
