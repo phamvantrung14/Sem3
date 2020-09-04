@@ -48,20 +48,27 @@ namespace UWP_Practical.Models
             }
             return code;
         }
-        public void Search(string name, string phone, ObservableCollection<Contacts> listConTacts)
+        public int Search(string name, string phone, ObservableCollection<Contacts> listConTacts)
         {
-           
+            int code = 0;
+            try
+            {
                 var querrysearch = conn.Query<Contacts>("select * from Contacts where Name = ? and Phone = ?", name, phone);
 
                 foreach (var q in querrysearch)
                 {
                     listConTacts.Add(q);
                 }
-          
-               
-               
-           
-           
+            }
+            catch (SQLiteException ex)
+            {
+                code = -1;
+            }
+            return code;
+
+
+
+
         }
     }
 }

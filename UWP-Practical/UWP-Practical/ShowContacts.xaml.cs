@@ -45,15 +45,10 @@ namespace UWP_Practical
         {
             string name = TxtName.Text;
             string phone = TxtPhone.Text;
-            try
-            {
-                db.Search(name, phone, listContact);
+           
+             int code =   db.Search(name, phone, listContact);
+           
 
-            }catch(Exception ex)
-            {
-                var message = new MessageDialog(" failed");
-                await message.ShowAsync();
-            }
 
 
         }
