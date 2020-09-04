@@ -33,14 +33,25 @@ namespace UWP_Practical
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            db.insert(new Contacts()
+           int code = db.insert(new Contacts()
             {
                 Name = TxtName.Text,
                 Phone = TxtPhone.Text
             });
-            var message = new MessageDialog("Add Contact Seccess");
+            if(code ==-1)
+            {
+
+                var message = new MessageDialog("Add Contact failed");
+                await message.ShowAsync();
+            }
+            else
+            {
+                var message = new MessageDialog("Add Contact Seccess");
+                await message.ShowAsync();
+            }
+            
             TxtName.Text = "";
             TxtPhone.Text = "";
         }

@@ -31,13 +31,22 @@ namespace UWP_Practical.Models
        
 
 
-        public void insert(Contacts cont)
+        public int insert(Contacts cont)
         {
-            conn.Insert(new Contacts()
+            int code = 0;
+            try
+            {
+                conn.Insert(new Contacts()
             {
                 Phone = cont.Phone,
                 Name = cont.Name
             });
+            }
+            catch (SQLiteException ex)
+            {
+                code = -1;
+            }
+            return code;
         }
         public void Search(string name, string phone, ObservableCollection<Contacts> listConTacts)
         {
@@ -48,6 +57,8 @@ namespace UWP_Practical.Models
                 {
                     listConTacts.Add(q);
                 }
+          
+               
                
            
            
