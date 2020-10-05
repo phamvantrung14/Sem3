@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Exam_Paper.DAL;
 using Exam_Paper.Models;
+using Microsoft.Ajax.Utilities;
 
 namespace Exam_Paper.Controllers
 {
@@ -16,13 +17,25 @@ namespace Exam_Paper.Controllers
         private FptDbContext db = new FptDbContext();
 
         // GET: Contacts
-        public ActionResult Index(string key)
+        public ActionResult Index(string key , string sortOrder)
         {
-            var data = db.Contacts.ToList();
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc":"";
+            /*var data = db.Contacts.ToList();*/
+            var data = from x in db.Contacts select x;
             if(!String.IsNullOrEmpty(key))
             {
-                data = data.Where(x => x.ContactName.ToLower().Contains(key.ToLower())).ToList();
+                /* data = data.Where(x => x.ContactName.ToLower().Contains(key.ToLower())).ToList();*/
+                data = data.Where(x => x.ContactName.Contains(key)||x.ContactName.Contains(key));
                 ViewBag.key = key;
+            }
+            switch(sortOrder)
+            {
+                case "name_desc":
+                    data = data.OrderByDescending(x => x.ContactName);
+                    break;
+                default:
+                    data = data.OrderBy(x => x.ContactName);
+                    break;
             }
             return View(data);
         }
