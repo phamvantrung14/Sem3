@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Client Test API</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <form id="frm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Id</label>
+                        <input type="text" class="form-control" id="Id" name="Id" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Name</label>
+                        <input type="text" class="form-control" id="Name" name="Name">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="Status" name="Status">
+                        <label class="form-check-label" for="Status">Active</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-save">Save</button>
+                </form>
+            </div>
+            <dvi class="col-lg-8">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+                       <tbody class="tbl_departments">
+                          
+                       </tbody>
+                    </table>
+                </div>
+            </dvi>
+        </div>
+    </div>
+
+
+
+
+    <script src="Scripts/jquery-3.5.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script>
+        const _host = 'https://localhost:44302/';
+        var validFrm;
+        function loadData() {
+            $.ajax({
+                type: "GET",
+                url: _host+"api/Departments",
+                success: function (response) {
+                    console.table(response);
+                    var rows = '';
+                    $.each(response, function (idx, item) {
+                        rows += `<tr>
+                                    <td>${item.Id}</td>
+                                    <td>${item.Name}</td>
+                                    <td>${item.Status}</td>
+                                    <td><a class="btn btn-warning">Edit</a></td>
+                                </tr>`;
+                    });
+                    $(".tbl_departments").html(rows);
+                }, error: function (xhr, start, error) {
+
+                }
+            });
+        }
+
+        function saveData(department) {
+            $.ajax({
+                type: 'POST',
+                url: _host + "api/Departments",
+                data: department,
+                success: function (res) {
+                    console.log(res);
+                    validFrm.showErrors(res.Data);
+                    loadData();
+                }
+            });
+        }
+        $(function () {
+            loadData();
+
+            validFrm = $("#frm").validate({
+                rules: {
+                    Id: 'required',
+                    Name: 'required'
+                },
+                messages: {
+                    Id: {
+                        required:'Vui long nhap Id!'
+                    },
+                    Name: {
+                        required:'Vui long nhap ten!'
+                    }
+                },
+                submitHandler: function (form) {
+                    return false;
+                }
+
+            });
+
+            $(".btn-save").click(function () {
+                var department = {
+                    Id: $("#Id").val(),
+                    Name: $("#Name").val(),
+                    Status: $("#Status").is(":checked")
+
+                }
+                saveData(department);
+            });
+        }
+        );
+    </script>
+</body>
+</html>

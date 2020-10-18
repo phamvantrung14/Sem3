@@ -1,0 +1,31 @@
+﻿@model IEnumerable<consumerApi.Models.BookClient>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (consumerApi.Models.Book book in ViewBag.listBooks) {
+    <tr>
+        <td>@book.BookId</td>
+        <td>@book.Title</td>
+        <td>@book.ISBN</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = @book.BookId }) |
+            @Html.ActionLink("Details", "Details", new { id= @book.BookId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = @book.BookId })
+        </td>
+    </tr>
+}
+
+</table>

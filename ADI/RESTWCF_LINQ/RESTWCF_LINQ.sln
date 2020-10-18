@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTWCF_LINQ", "RESTWCF_LINQ\RESTWCF_LINQ.csproj", "{F585122E-4EB0-433D-96BE-1E2E7815BE87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F585122E-4EB0-433D-96BE-1E2E7815BE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F585122E-4EB0-433D-96BE-1E2E7815BE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F585122E-4EB0-433D-96BE-1E2E7815BE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F585122E-4EB0-433D-96BE-1E2E7815BE87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76B9C4EF-29A1-49FF-A699-F543E9BC406C}
+	EndGlobalSection
+EndGlobal
