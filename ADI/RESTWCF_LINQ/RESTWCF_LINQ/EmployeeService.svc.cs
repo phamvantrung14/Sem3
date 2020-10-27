@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using RESTWCF_LINQ.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,8 +18,7 @@ namespace RESTWCF_LINQ
         {
             try
             {
-                 return (from employee in
-                             data.Employees select employee).ToList();
+                 return (from employee in data.Students select employee).ToList();
             }
             catch { return null; }
         }

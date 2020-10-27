@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FptApt_001" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GQ6T9MQ;Initial Catalog=FptApt_001;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FptApt_001ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Enrollment" Member="Enrollments">
+    <Type Name="Enrollment">
+      <Column Name="EnrollmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Grade" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Student_Enrollment" Member="Student" ThisKey="StudentID" OtherKey="ID" Type="Student" IsForeignKey="true" />
+      <Association Name="Course_Enrollment" Member="Course" ThisKey="CourseID" OtherKey="CourseID" Type="Course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FirstMidName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EnrollmentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Phone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Student_Enrollment" Member="Enrollments" ThisKey="ID" OtherKey="StudentID" Type="Enrollment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Course" Member="Courses">
+    <Type Name="Course">
+      <Column Name="CourseID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Credits" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Course_Enrollment" Member="Enrollments" ThisKey="CourseID" OtherKey="CourseID" Type="Enrollment" />
+    </Type>
+  </Table>
+</Database>

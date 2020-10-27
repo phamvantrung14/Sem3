@@ -102,14 +102,14 @@ namespace Assigment1_WCF
 
         public List<Deal> GetDealListById(string accountNumber, int codePin)
         {
-            /* var dataAc = db.Accounts.ToList();*/
-            ; ; ;            
-           /* foreach (var item in dataAc)
+            var dataAc = db.Accounts.ToList();
+
+            foreach (var item in dataAc)
             {
-                if (accountNumber == item.AccountName)
+                if (item.AccountName== accountNumber)
                 {
-                    if (codePin == item.CodePin)
-                    {*/
+                    if (item.CodePin== codePin)
+                    {
                         List<Deal> deals = new List<Deal>();
                         var list = db.Deals.Where(x => x.Account_ID == accountNumber).ToList();
                         list.ForEach(b => deals.Add(new Deal()
@@ -123,10 +123,10 @@ namespace Assigment1_WCF
                             Status=b.Status,
                             TransactionFees=b.TransactionFees
                         }));
-                        
-           /*         }
+
+                    }
                 }
-            }*/
+            }
             return deals ;
         }
     }
