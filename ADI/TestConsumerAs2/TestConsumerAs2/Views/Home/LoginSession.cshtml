@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "LoginSession";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../index2.html"><b>Mini</b>Blog</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Hay Đăng Nhập Để Tham Gia Hoạt Động</p>
+            <p class="login-box-msg">@ViewBag.message</p>
+
+            @using (Html.BeginForm())
+            {
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" name="email" value="" placeholder="Nhập Email của Bạn" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+
+                    <input type="password" class="form-control" name="pwd" value="" placeholder="Nhập Mật Khẩu" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12" style="padding-left:0px;padding-right:0px;">
+                    <button type="submit" class="btn btn-primary btn-block">Đăng Nhập</button>
+                </div>
+
+            }
+
+            <!-- /.social-auth-links -->
+            <p class="mb-0">
+                <a href="@Url.Action("Register","Home")" class="text-center">Đăng Ký</a>
+            </p>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+

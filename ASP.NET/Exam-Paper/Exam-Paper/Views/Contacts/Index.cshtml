@@ -54,7 +54,8 @@
             @Html.DisplayFor(modelItem => item.ContactNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GroupName)
+           @* @Html.DisplayFor(modelItem => item.GroupName)*@
+            <img src="~/UploadedFiles/@item.GroupName" width="100px"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.HireDate)

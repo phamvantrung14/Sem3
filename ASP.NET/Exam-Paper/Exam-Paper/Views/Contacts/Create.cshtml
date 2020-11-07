@@ -7,7 +7,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Contacts", FormMethod.Post,new { enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -30,6 +30,11 @@
                 @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div>
+            @Html.TextBox("file", "", new { type="file"})<br />
+
+        </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.GroupName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -46,6 +51,7 @@
                 @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
             </div>
         </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.BirthDay, htmlAttributes: new { @class = "control-label col-md-2" })

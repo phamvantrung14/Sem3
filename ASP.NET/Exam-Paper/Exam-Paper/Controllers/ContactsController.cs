@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using Exam_Paper.DAL;
 using Exam_Paper.Models;
@@ -66,16 +68,38 @@ namespace Exam_Paper.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,ContactName,ContactNumber,GroupName,HireDate,BirthDay")] Contact contact)
+        public ActionResult Create([Bind(Include = "ID,ContactName,ContactNumber,GroupName,HireDate,BirthDay")] Contact contact,HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    /*string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);*/
+                    string _path = Path.Combine(HostingEnvironment.MapPath("~/UploadedFiles"), _FileName);
+                    string _path2 = Path.Combine("C:/Users/asuspc/Desktop/BookCover", _FileName);
+                    file.SaveAs(_path2);
+                    file.SaveAs(_path);
+                    ViewBag.Message = _path;
+                    ViewBag.Message2 = _path2;
+                    if (ModelState.IsValid)
+                    {
 
+                        contact.GroupName = _path;
+                        db.Contacts.Add(contact);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                ViewBag.Message = "ko thanh cong";
+            }
             return View(contact);
+
+
         }
 
         // GET: Contacts/Edit/5

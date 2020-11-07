@@ -1,0 +1,76 @@
+﻿@model TestConsumerAs2.Models.Customer
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../index2.html"><b>Mini</b>Blog</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Đăng Ký Tài Khoản</p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    
+                   
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label for="message">Tên Người Dùng:</label>
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Email:</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mật Khẩu:</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Type = "Password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="row">
+                                <input type="submit" value="Đăng Ký" class="btn btn-default" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- /.social-auth-links -->
+            <p class="mb-0">
+                <a href="@Url.Action("LoginSession","Home")" class="text-center">Đăng Nhập</a>
+            </p>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>

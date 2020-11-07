@@ -1,0 +1,114 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/miniblog/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 04:44:01 GMT -->
+<head>
+    <title>Mini Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/Assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/Assets/css/aos.css">
+    @RenderSection("head", required: false)
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+</head>
+<body>
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <div class="col-12 search-form-wrap js-search-form">
+                        <form method="get" action="#">
+                            <input type="text" id="s" class="form-control" placeholder="Search...">
+                            <button class="search-btn" type="submit"><span class="icon-search"></span></button>
+                        </form>
+                    </div>
+
+                    <div class="col-4 site-logo">
+                        <a href="@Url.Action("Index","Home")" class="text-black h2 mb-0">Mini Blog</a>
+                    </div>
+
+                    <div class="col-8 text-right">
+                        <nav class="site-navigation" role="navigation">
+                            <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
+                                @foreach (var item in ViewBag.dataTypeBlogs)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("ListBlogType","Home",new { id=item.ID})">@item.TypeName</a>
+
+                                    </li>
+                                }
+                                @if (Session["loginCustomer"] != null)
+                                {
+                                    <li><p>@Session["loginCustomer"].ToString()</p></li>
+                                    <li><p class="d-block">@Html.ActionLink("Đăng Xuất", "LogoutSession", "Home")</p></li>
+                                    
+                                }
+                                else
+                                {
+                                    <li><p>@Html.ActionLink("Đăng Nhập", "LoginSession", "Home")</p></li>
+                                }
+
+
+
+                               
+                            </ul>
+                        </nav>
+                        <a href="#" class="site-menu-toggle js-menu-toggle text-black d-inline-block d-lg-none"><span class="icon-menu h3"></span></a>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        @RenderBody()
+        <script src="~/Assets/js/jquery-3.3.1.min.js"></script>
+        <script src="~/Assets/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="~/Assets/js/jquery-ui.js"></script>
+        <script src="~/Assets/js/popper.min.js"></script>
+        <script src="~/Assets/js/bootstrap.min.js"></script>
+        <script src="~/Assets/js/owl.carousel.min.js"></script>
+        <script src="~/Assets/js/jquery.stellar.min.js"></script>
+        <script src="~/Assets/js/jquery.countdown.min.js"></script>
+        <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/Assets/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/Assets/js/aos.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+        <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+        </script>
+        @RenderSection("script",false)
+
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/miniblog/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 04:44:01 GMT -->
+</html>
