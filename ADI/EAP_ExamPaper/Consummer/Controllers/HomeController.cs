@@ -17,9 +17,9 @@ namespace Consummer.Controllers
         public ActionResult Index(string key)
         {
             var data = dataEmp.GetAllEmployee();
-            if(key !="")
+            if (key != "")
             {
-                data = dataEmp.GetEmployeeByKey(key);
+                 data = dataEmp.GetEmployeeByKey(key);
 
             }
             return View(data);
